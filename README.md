@@ -21,7 +21,7 @@ To win, you have to destroy the enemy ship before it destroys your home ship.
 
 ## Installation
 
-To run this application, download the GitHub zip file or clone the repository. Then open a browsser window and within it open the index.html from within the directory of your application.
+To run this application, download the GitHub zip file or clone the repository. Open a browser window and within it open the index.html present in the root of the application.
 
 ## Tools used in this game:
 
