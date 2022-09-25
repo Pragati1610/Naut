@@ -45,6 +45,7 @@ function keyPressed() {
 }
 
 function draw() {
+    clear();
     background(0);
     if (mode === 0) {
         drawAndUpdateSpaceships();

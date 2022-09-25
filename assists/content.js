@@ -33,12 +33,12 @@ function displayHelpInstructions(xstart, ystart) {
 
 function menuContent() {
     let content = [
-        "   Use up and down arrows to select",
-        "   Press enter to select",
-        "   Press esc to get back to menu!",
-        "   Refer to help for further instructions",
+        "   Use up and down arrows to choose the options",
+        "   Press enter to select the option",
+        "   Press esc to get back to main menu!",
+        "   Refer to HELP for further instructions",
     ];
     for (let i = 0; i < content.length; i++) {
-        text(content[i], 350, 700 + 25 * i);
+        text(content[i], 300, 700 + 25 * i);
     }
 }
