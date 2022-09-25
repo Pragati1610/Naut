@@ -1,3 +1,8 @@
+function displayCompartments() {
+    fill(255);
+    text("COMPARTMENTS", 100, 50);
+}
+
 function displayHull() {
     fill(255);
     text("HULL", 100, 200);
@@ -32,13 +37,21 @@ function displayHelpInstructions(xstart, ystart) {
 }
 
 function menuContent() {
+    instructionStyles();
     let content = [
         "   Use up and down arrows to choose the options",
         "   Press enter to select the option",
-        "   Press esc to get back to main menu!",
         "   Refer to HELP for further instructions",
     ];
     for (let i = 0; i < content.length; i++) {
         text(content[i], 300, 700 + 25 * i);
+    }
+}
+
+function backContent() {
+    instructionStyles();
+    let content = ["   Press esc to get back to main menu!"];
+    for (let i = 0; i < content.length; i++) {
+        text(content[i], 325, 850 + 25 * i);
     }
 }

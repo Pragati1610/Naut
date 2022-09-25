@@ -4,27 +4,11 @@ let options = ["START", "HELP", "EXIT"];
 let ptr = 0;
 let menuMode = 3;
 let mode = menuMode;
+let resetButton;
 
 function setup() {
     createCanvas(1000, 900);
-    homePlayer = new SpaceShip(
-        "Home Ship",
-        homePlayerCoordinates,
-        homePlayerOxygenCompartmentCoordinates,
-        homePlayerWeaponsCompartmentCoordinates,
-        homePlayerShieldCompartmentCoordinates,
-        homePlayerHullCoordinates,
-        250
-    );
-    target = new SpaceShip(
-        "Target Ship",
-        targetCoordinates,
-        targetOxygenCompartmentCoordinates,
-        targetWeaponsCompartmentCoordinates,
-        targetShieldCompartmentCoordinates,
-        targetHullCoordinates,
-        200
-    );
+    setSpaceshipValues();
     frameRate(10);
 }
 
@@ -49,8 +33,10 @@ function draw() {
     background(0);
     if (mode === 0) {
         drawAndUpdateSpaceships();
+        displayCompartments();
         displayHull();
         displayPlayer();
+        reset();
 
         if (target.hull) {
             target.autoPilot(homePlayer);
@@ -76,9 +62,9 @@ function draw() {
             }
             text(options[i], 450, 300 + i * 100);
         }
-        instructionStyles();
         menuContent();
     }
+    backContent();
 }
 
 function drawAndUpdateSpaceships() {
@@ -87,4 +73,31 @@ function drawAndUpdateSpaceships() {
     target.show();
     homePlayer.update();
     target.update();
+}
+
+function reset() {
+    button = createButton("reset");
+    button.position(475, 920);
+    button.mousePressed(setSpaceshipValues);
+}
+
+function setSpaceshipValues() {
+    homePlayer = new SpaceShip(
+        "Home Ship",
+        homePlayerCoordinates,
+        homePlayerOxygenCompartmentCoordinates,
+        homePlayerWeaponsCompartmentCoordinates,
+        homePlayerShieldCompartmentCoordinates,
+        homePlayerHullCoordinates,
+        0
+    );
+    target = new SpaceShip(
+        "Target Ship",
+        targetCoordinates,
+        targetOxygenCompartmentCoordinates,
+        targetWeaponsCompartmentCoordinates,
+        targetShieldCompartmentCoordinates,
+        targetHullCoordinates,
+        0
+    );
 }

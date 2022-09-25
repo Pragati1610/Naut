@@ -22,12 +22,14 @@ function SpaceShip(
         text(this.name, coordinates.xcenter - 50, 250);
 
         normalTextStyles(color);
+        stroke(255);
         ellipse(
             coordinates.xcenter,
             coordinates.ycenter,
             coordinates.xdiameter,
             coordinates.ydiameter
         );
+        stroke(0);
         for (let i = 0; i < this.compartments.length; i++) {
             this.compartments[i].show();
         }
@@ -52,7 +54,7 @@ function SpaceShip(
     };
 
     this.update = function() {
-        this.dodge = Math.random() > 0.3 ? 1 : 0;
+        this.dodge = Math.random() > 0.7 ? 1 : 0;
     };
 
     this.autoPilot = function(spaceShip) {
