@@ -30,40 +30,50 @@ function keyPressed() {
 
 function draw() {
     clear();
+
     background(0);
-    if (mode === 0) {
-        drawAndUpdateSpaceships();
-        displayCompartments();
-        displayHull();
-        displayPlayer();
-        reset();
+    switch (mode) {
+        case 0:
+            reset();
+            drawAndUpdateSpaceships();
+            // displayCompartments();
+            displayHull();
+            displayPlayer();
 
-        if (target.hull) {
-            target.autoPilot(homePlayer);
-        }
-
-        endGameStyles();
-        if (!target.hull) {
-            text("YOU WON!", 350, 500);
-        } else if (!homePlayer.hull) {
-            text("GAME OVER!", 350, 500);
-        }
-    } else if (mode === 1) {
-        displayHelpInstructions(200, 300);
-    } else if (mode === 2) {
-        menuStyles();
-        text("Bye!", 475, 300);
-    } else if (mode === 3) {
-        for (let i = 0; i < options.length; i++) {
-            if (i === ptr) {
-                menuSelectedStyles();
-            } else {
-                menuStyles();
+            if (target.hull) {
+                target.autoPilot(homePlayer);
             }
-            text(options[i], 450, 300 + i * 100);
-        }
-        menuContent();
+
+            endGameStyles();
+            if (!target.hull) {
+                text("YOU WON!", 350, 500);
+            } else if (!homePlayer.hull) {
+                text("GAME OVER!", 350, 500);
+            }
+            break;
+
+        case 1:
+            displayHelpInstructions(200, 300);
+            break;
+
+        case 2:
+            menuStyles();
+            text("Bye!", 475, 300);
+            break;
+
+        case 3:
+            for (let i = 0; i < options.length; i++) {
+                if (i === ptr) {
+                    menuSelectedStyles();
+                } else {
+                    menuStyles();
+                }
+                text(options[i], 450, 300 + i * 100);
+            }
+            menuContent();
+            break;
     }
+
     backContent();
 }
 
@@ -76,9 +86,9 @@ function drawAndUpdateSpaceships() {
 }
 
 function reset() {
-    button = createButton("reset");
-    button.position(475, 920);
-    button.mousePressed(setSpaceshipValues);
+    resetButton = createButton("reset");
+    resetButton.position(500, 800);
+    resetButton.mousePressed(setSpaceshipValues);
 }
 
 function setSpaceshipValues() {

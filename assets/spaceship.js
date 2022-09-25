@@ -54,7 +54,7 @@ function SpaceShip(
     };
 
     this.update = function() {
-        this.dodge = Math.random() > 0.7 ? 1 : 0;
+        this.dodge = Math.random() > 0.3 ? 1 : 0;
     };
 
     this.autoPilot = function(spaceShip) {
