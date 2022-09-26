@@ -25,4 +25,4 @@ To run this application, download the GitHub zip file or clone the repository. O
 
 ## Tools used in this game:
 
-Composition and Object-Oriented JavaScript, p5\*js
+Composition and OOPs in JavaScript, p5\*js
